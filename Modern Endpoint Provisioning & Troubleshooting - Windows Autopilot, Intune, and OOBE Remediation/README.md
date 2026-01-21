@@ -16,14 +16,18 @@ Part 1: Incident Response (Autopilot Remediation)
      - PowerShell Execution: Bypassed execution policy and ran Get-WindowsAutopilotInfo to harvest the hardware hash.
      - Engineering Workaround: "Used Edge browser via start msedge to authenticate the Intune portal and upload the hardware hash manually."
 
-[INSERT SCREENSHOT OF BI-10 INTERNAL NOTES]
-(Caption: The engineer’s log showing the PowerShell CLI remediation steps)
+![Ticket BI-10 engineers log](./images/autopilot-initial.png)
+
+![Ticket BI-10 engineers log](./images/autopilot-solve.png)
+
 
   3. Resolution
     - The incident was closed once the device successfully recognized the tenant on reboot.
     - By documenting the start msedge workaround, I provided the team with a faster alternative to troubleshooting virtual drive mounting in the future.
-INSERT SCREENSHOT 7 HERE]
-(Caption: Windows Autopilot devices blade showing the hardware serial number and 'Assigned' profile status)
+
+![Ticket BI-10 engineers log](./images/autopilot-device.png)
+
+![Ticket BI-10 engineers log](./images/autopilot-resolve.png)
 
 Part 2: Modern Autopilot Workflow
     1. Service Request:
