@@ -33,13 +33,13 @@ Part 1: Incident Response (Autopilot Remediation)
 
 
 Part 2: Modern Autopilot Workflow
+
     1. Service Request:
       - Request Type: New Hire Device Provisioning
 ![Ticket - New Hire Request](./images/new hire- request.png)
 
     2. Technical Configuration
       1. Hardware Hash Registration: Harvested and Registered the Hardware Hash into Autopilot Devices
-![Ticket - Hardware Hash](./images/autopilot-device.png)
 
     3. User Experience (Out-of-Box Experience)
       Goal is to allow for an employee to receive a new laptop and reach a productive state effectively and securely
