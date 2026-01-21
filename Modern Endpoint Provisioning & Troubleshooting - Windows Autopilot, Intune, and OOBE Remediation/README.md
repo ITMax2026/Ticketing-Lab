@@ -62,5 +62,5 @@ Part 2: Modern Autopilot Workflow
 ![Ticket - Correct Login](./images/intune-compliance.png)
 
 
-![Ticket - Resolution](./images/new hire-solution.png)
+![Ticket - Resolution](./images/new-hire-resolved.png)
 
