@@ -8,7 +8,7 @@ Part 1: Incident Response (Autopilot Remediation)
       -  While provisioning a device (VM-01) the automated deployment failed - instead of tenant login screen, the device presented a generic consumer Windows Out-of-Box Experience (OOBE)
         - Symptom: Device prompted for Region selection and keyboard layout
 
-![Ticket BI-10 documenting the failure symptoms](/images/autopilot-request.png)
+![Ticket BI-10 documenting the failure symptoms](./images/autopilot-request.png)
 
   2. Technical fix
      I used Jira internal notes to document the remediations steps.  This serves as a Knowledge Base entry for the team
