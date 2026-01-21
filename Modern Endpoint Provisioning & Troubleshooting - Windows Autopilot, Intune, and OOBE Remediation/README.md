@@ -55,12 +55,12 @@ Part 2: Modern Autopilot Workflow
     4. Verification of Management and Compliance
       Management Verification: Verfiied via the local 'Access Work or School' setting that the device is connected to the MaxTicketLab Entra ID
 
-![Ticket - Correct Login](./images/.png)
+![Ticket - Correct Login](./images/management-verification.png)
 
       Compliance Check: In the Intune portal, verified that device status return a 'Compliant' flag.
 
-![Ticket - Correct Login](./images/.png)
+![Ticket - Correct Login](./images/intune-compliance.png)
 
 
-![Ticket - Resolution](./images/new-hire-solution.png)
+![Ticket - Resolution](./images/new hire-solution.png)
 
