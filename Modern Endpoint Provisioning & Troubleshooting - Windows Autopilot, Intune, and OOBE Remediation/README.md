@@ -1,4 +1,5 @@
 Goal: Implement a zero-touch (or low-touch) deployment strategy using Windows Autopilot to provision a corporate device
+
 Solution: Utilized Microsoft Intune and Entra ID to configure the backend so that when a user connects their device it is compliant, productive in minutes via Out-of-Box Experience (OOBE)
 
 
