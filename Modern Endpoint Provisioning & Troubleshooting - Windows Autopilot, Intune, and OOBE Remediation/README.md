@@ -1,25 +1,14 @@
 Goal: Implement a zero-touch (or low-touch) deployment strategy using Windows Autopilot to provision a corporate device
 Solution: Utilized Microsoft Intune and Entra ID to configure the backend so that when a user connects their device it is compliant, productive in minutes via Out-of-Box Experience (OOBE)
 
-Admin Setup:
-  1. Manual Hardware Hash: referenced here - https://learn.microsoft.com/en-us/autopilot/add-devices
-    - Start the Windows 11 installation on your VM.
-    - STOP when you get to the "Region Selection" screen (the very first blue screen of the setup/OOBE).
-    - Press Shift + F10 on your keyboard to open a Command Prompt.
-     - Type these commands to create a hash file the ID of:
-        Powershell
-        Set-ExecutionPolicy Bypass -Scope Process
-        Install-Script -Name Get-WindowsAutoPilotInfo
-        Get-WindowsAutoPilotInfo.ps1 -OutputFile C:\HardwareHash.csv or  Get-WindowsAutopilotInfo -Online or 
-       * I spent quite a bit of time here and was never able to get the csv file off of a local save.  I got the online upload to work once.
-       * What worked for me consistently was start msedge which opened a browser where I would login to Intune and upload the file
+
 
 Part 1: Incident Response (Autopilot Remediation)
    1. Problem Identification
       -  While provisioning a device (VM-01) the automated deployment failed - instead of tenant login screen, the device presented a generic consumer Windows Out-of-Box Experience (OOBE)
         - Symptom: Device prompted for Region selection and keyboard layout
 
-![Ticket BI-10 documenting the failure symptoms](images/diagram.png)
+![Ticket BI-10 documenting the failure symptoms](autopilot-request.png)
 
   2. Technical fix
      I used Jira internal notes to document the remediations steps.  This serves as a Knowledge Base entry for the team
