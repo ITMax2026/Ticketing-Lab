@@ -1,0 +1,69 @@
+Goal: Implement a zero-touch (or low-touch) deployment strategy using Windows Autopilot to provision a corporate device
+Solution: Utilized Microsoft Intune and Entra ID to configure the backend so that when a user connects their device it is compliant, productive in minutes via Out-of-Box Experience (OOBE)
+
+Admin Setup:
+  1. Manual Hardware Hash: referenced here - https://learn.microsoft.com/en-us/autopilot/add-devices
+    - Start the Windows 11 installation on your VM.
+    - STOP when you get to the "Region Selection" screen (the very first blue screen of the setup/OOBE).
+    - Press Shift + F10 on your keyboard to open a Command Prompt.
+     - Type these commands to create a hash file the ID of:
+        Powershell
+        Set-ExecutionPolicy Bypass -Scope Process
+        Install-Script -Name Get-WindowsAutoPilotInfo
+        Get-WindowsAutoPilotInfo.ps1 -OutputFile C:\HardwareHash.csv or  Get-WindowsAutopilotInfo -Online or 
+       * I spent quite a bit of time here and was never able to get the csv file off of a local save.  I got the online upload to work once.
+       * What worked for me consistently was start msedge which opened a browser where I would login to Intune and upload the file
+
+Part 1: Incident Response (Autopilot Remediation)
+   1. Problem Identification
+      -  While provisioning a device (VM-01) the automated deployment failed - instead of tenant login screen, the device presented a generic consumer Windows Out-of-Box Experience (OOBE)
+        - Symptom: Device prompted for Region selection and keyboard layout
+  [INSERT SCREENSHOT OF BI-10 DESCRIPTION]
+(Caption: Ticket BI-10 documenting the failure symptoms)
+
+  2. Technical fix
+     I used Jira internal notes to document the remediations steps.  This serves as a Knowledge Base entry for the team
+     - Action Taken: Interrupted OOBE via Shift + F10 to access the WinPE Command Line.
+     - PowerShell Execution: Bypassed execution policy and ran Get-WindowsAutopilotInfo to harvest the hardware hash.
+     - Engineering Workaround: "Used Edge browser via start msedge to authenticate the Intune portal and upload the hardware hash manually."
+
+[INSERT SCREENSHOT OF BI-10 INTERNAL NOTES]
+(Caption: The engineer’s log showing the PowerShell CLI remediation steps)
+
+  3. Resolution
+    - The incident was closed once the device successfully recognized the tenant on reboot.
+    - By documenting the start msedge workaround, I provided the team with a faster alternative to troubleshooting virtual drive mounting in the future.
+INSERT SCREENSHOT 7 HERE]
+(Caption: Windows Autopilot devices blade showing the hardware serial number and 'Assigned' profile status)
+
+Part 2: Modern Autopilot Workflow
+    1. Service Request:
+      - Request Type: New Hire Device Provisioning
+[INSERT SCREENSHOT 1 & 2 HERE]
+(Caption: Jira Service Request setup and final SOAR resolution notes)
+
+    2. Technical Configuration
+      1. Hardware Hash Registration: Harvested and Registered the Hardware Hash into Autopilot Devices
+[INSERT SCREENSHOT 7 HERE]
+(Caption: Windows Autopilot devices blade showing the hardware serial number and 'Assigned' profile status)
+
+    3. User Experience (Out-of-Box Experience)
+      Goal is to allow for an employee to receive a new laptop and reach a productive state effectively and securely
+      1. Identity and Security: 
+        - Upon boot, the device recognized the Intune/Autopilot tenant.  
+        - The user was prompted for the corporate credentials and was required to verify an MFA prompt via Micsofot Authenticator App
+        - Windows Hello for Busines (WHfB):  User created a mandatory PIN setup, tied to local TPM encrypted storage and replacing insecure passwords
+
+    [INSERT SCREENSHOTS 3, 4, 5 HERE]
+(Caption: Branded OOBE login, MFA Approval via Authenticator, and Windows Hello PIN setup)
+
+    4. Verification of Management and Compliance
+      Management Verification: Verfiied via the local 'Access Work or School' setting that the device is connected to the MaxTicketLab Entra ID
+
+    SCREENSOHT
+
+      Compliance Check: In the Intune portal, verified that device status return a 'Compliant' flag.
+
+[INSERT SCREENSHOTS 6 & 8 HERE]
+(Caption: Local device settings showing Entra ID Join and Intune Portal showing 'Compliant' status)
+    
