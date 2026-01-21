@@ -36,7 +36,7 @@ Part 2: Modern Autopilot Workflow
 
     1. Service Request:
       - Request Type: New Hire Device Provisioning
-![Ticket - New Hire Request](./images/new hire- request.png)
+![Ticket - New Hire Request](./images/new-hire-request.png)
 
     2. Technical Configuration
       1. Hardware Hash Registration: Harvested and Registered the Hardware Hash into Autopilot Devices
