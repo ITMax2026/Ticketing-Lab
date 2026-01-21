@@ -16,7 +16,7 @@ Part 1: Incident Response (Autopilot Remediation)
      - PowerShell Execution: Bypassed execution policy and ran Get-WindowsAutopilotInfo to harvest the hardware hash.
      - Engineering Workaround: "Used Edge browser via start msedge to authenticate the Intune portal and upload the hardware hash manually."
 
-![Ticket BI-10 engineers log](./images/autopilot-initial.png)
+![Ticket BI-10 engineers log](./images/autopilot-inital.png)
 
 ![Ticket BI-10 engineers log](./images/autopilot-solve.png)
 
