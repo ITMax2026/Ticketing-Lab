@@ -16,29 +16,29 @@ Part 1: Incident Response (Autopilot Remediation)
      - PowerShell Execution: Bypassed execution policy and ran Get-WindowsAutopilotInfo to harvest the hardware hash.
      - Engineering Workaround: "Used Edge browser via start msedge to authenticate the Intune portal and upload the hardware hash manually."
 
-![Ticket BI-10 engineers log](./images/autopilot-inital.png)
+![Ticket BI-10 initial response](./images/autopilot-inital.png)
 
-![Ticket BI-10 engineers log](./images/autopilot-solve.png)
+![Ticket BI-10 Technical Fix](./images/autopilot-solve.png)
 
 
   3. Resolution
     - The incident was closed once the device successfully recognized the tenant on reboot.
     - By documenting the start msedge workaround, I provided the team with a faster alternative to troubleshooting virtual drive mounting in the future.
 
-![Ticket BI-10 engineers log](./images/autopilot-device.png)
+![Ticket BI-10 Device Recognized](./images/autopilot-device.png)
 
-![Ticket BI-10 engineers log](./images/autopilot-resolve.png)
+![Ticket BI-10 Ticket Resolution](./images/autopilot-resolve.png)
+
+
 
 Part 2: Modern Autopilot Workflow
     1. Service Request:
       - Request Type: New Hire Device Provisioning
-[INSERT SCREENSHOT 1 & 2 HERE]
-(Caption: Jira Service Request setup and final SOAR resolution notes)
+![Ticket - New Hire Request](./images/new hire- request.png)
 
     2. Technical Configuration
       1. Hardware Hash Registration: Harvested and Registered the Hardware Hash into Autopilot Devices
-[INSERT SCREENSHOT 7 HERE]
-(Caption: Windows Autopilot devices blade showing the hardware serial number and 'Assigned' profile status)
+![Ticket - Hardware Hash](./images/autopilot-device.png)
 
     3. User Experience (Out-of-Box Experience)
       Goal is to allow for an employee to receive a new laptop and reach a productive state effectively and securely
@@ -47,16 +47,20 @@ Part 2: Modern Autopilot Workflow
         - The user was prompted for the corporate credentials and was required to verify an MFA prompt via Micsofot Authenticator App
         - Windows Hello for Busines (WHfB):  User created a mandatory PIN setup, tied to local TPM encrypted storage and replacing insecure passwords
 
-    [INSERT SCREENSHOTS 3, 4, 5 HERE]
-(Caption: Branded OOBE login, MFA Approval via Authenticator, and Windows Hello PIN setup)
+![Ticket - Correct Login](./images/login-wh.png)
+
+![Ticket - Correct Login](./images/login-mfa.png)
+
 
     4. Verification of Management and Compliance
       Management Verification: Verfiied via the local 'Access Work or School' setting that the device is connected to the MaxTicketLab Entra ID
 
-    SCREENSOHT
+![Ticket - Correct Login](./images/login-mfa.png)
 
       Compliance Check: In the Intune portal, verified that device status return a 'Compliant' flag.
 
-[INSERT SCREENSHOTS 6 & 8 HERE]
-(Caption: Local device settings showing Entra ID Join and Intune Portal showing 'Compliant' status)
-    
+![Ticket - Correct Login](./images/login-mfa.png)
+
+
+![Ticket - Resolution](./images/new-hire-solution.png)
+
